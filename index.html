@@ -3,14 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mars Facts</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pav Bhaji Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .fact {
+            font-size: 1.5em;
+            text-align: center;
+            margin: 20px;
+            max-width: 600px;
+        }
+        button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Facts About Mars</h1>
-        <ul id="facts-list"></ul>
-    </div>
-    <script src="script.js"></script>
+    <h1>Pav Bhaji Facts</h1>
+    <div class="fact" id="factDisplay"></div>
+    <button onclick="toggleFact()">Next Fact</button>
+
+    <script>
+        const facts = [
+            "Pav Bhaji originated in the 1850s as a quick lunch option for Mumbai's textile mill workers.",
+            "The dish consists of a spicy vegetable mash served with buttered bread rolls called 'pav.'",
+            "Pav Bhaji is traditionally made with potatoes, tomatoes, peas, and bell peppers.",
+            "The dish is known for its vibrant red color, often achieved using Kashmiri red chili powder.",
+            "Pav Bhaji is typically garnished with chopped onions, coriander, and a squeeze of lemon.",
+            "It is a popular street food in India, especially in Mumbai, where it is widely available.",
+            "The pav used in Pav Bhaji is similar to dinner rolls and is usually toasted with butter.",
+            "Pav Bhaji can be customized with additional toppings like cheese or paneer for extra flavor.",
+            "The dish is often enjoyed as a snack, but it can also be a hearty meal on its own.",
+            "Pav Bhaji has inspired various fusion dishes, including Pav Bhaji pizzas and sandwiches."
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact(index) {
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.textContent = facts[index];
+        }
+
+        function toggleFact() {
+            currentFactIndex = (currentFactIndex + 1) % facts.length;
+            displayFact(currentFactIndex);
+        }
+
+        // Display the first fact initially
+        displayFact(currentFactIndex);
+    </script>
 </body>
 </html>
